@@ -1,12 +1,11 @@
 package com.api.tests;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.testng.annotations.Test;
 
 import com.api.base.AuthenticationService;
 import com.api.base.BookingService;
+import com.api.model.request.BookingDates;
 import com.api.model.request.CreateBookingRequest;
 import com.api.model.response.AuthResponse;
 
@@ -19,13 +18,13 @@ public class UpdateBookingTest {
 		Response response = authService.getToken();
 		AuthResponse authresponse = response.as(AuthResponse.class);
 		System.out.println(authresponse.getToken());
-		List<String> dates = new ArrayList<String>();
-		dates.add("2025-01-25");
-		dates.add("2025-01-27");
+		BookingDates bookingDates = new BookingDates();
+		bookingDates.setCheckin("2018-01-01");
+		bookingDates.setCheckout("2019-01-07");
 		BookingService reqBooking = new BookingService();
 		response = reqBooking.updateBooking(
-				new CreateBookingRequest("Santhosh", "Nandha", 123, true, dates, "Breakfast"), authresponse.getToken(),
-				"1679");
+				new CreateBookingRequest("Santhu", "Nandha", 123, true, bookingDates, "Breakfast"),
+				authresponse.getToken(), 1116);
 		System.out.println(response.asPrettyString());
 	}
 

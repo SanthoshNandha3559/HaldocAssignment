@@ -10,7 +10,7 @@ public class GetBookingTest {
 	@Test(description = "Verify the Get Booking functionality API....")
 	public void getBookingTest() {
 		BookingService reqBooking = new BookingService();
-		Response response = reqBooking.getBooking(1);
+		Response response = reqBooking.getBooking(1116);
 		System.out.println(response.asPrettyString());
 	}
 

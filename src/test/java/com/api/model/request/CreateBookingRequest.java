@@ -1,13 +1,12 @@
 package com.api.model.request;
 
-import java.util.List;
 
 public class CreateBookingRequest {
 	private String firstname;
 	private String lastname;
 	private int totalprice;
 	private boolean depositpaid;
-	private List<String> bookingdates;
+	private BookingDates  bookingdates;
 	private String additionalneeds;
 
 	public String getFirstname() {
@@ -42,11 +41,11 @@ public class CreateBookingRequest {
 		this.depositpaid = depositpaid;
 	}
 
-	public List<String> getBookingdates() {
+	public BookingDates  getBookingdates() {
 		return bookingdates;
 	}
 
-	public void setBookingdates(List<String> bookingdates) {
+	public void setBookingdates(BookingDates  bookingdates) {
 		this.bookingdates = bookingdates;
 	}
 
@@ -59,7 +58,7 @@ public class CreateBookingRequest {
 	}
 
 	public CreateBookingRequest(String firstname, String lastname, int totalprice, boolean depositpaid,
-			List<String> bookingdates, String additionalneeds) {
+			BookingDates  bookingdates, String additionalneeds) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;

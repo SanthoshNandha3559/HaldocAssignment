@@ -25,12 +25,12 @@ public class BaseService {
 				.header("Accept", "application/json").body(payload).post(endpoint);
 	}
 
-	public Response putRequest(Object payload, String endpoint, String token) {
-		return requestSpecification.contentType(ContentType.JSON).header("Content-Type", "application/json")
-				.header("Cookie", "token=" + token).header("Accept", "application/json").body(payload).put(endpoint);
+	public Response putRequest(Object payload, String endpoint, String token, int bookingid) {
+		return requestSpecification.header("Content-Type", "application/json").header("Cookie", "token=" + token)
+				.header("Accept", "application/json").pathParam("id", bookingid).body(payload).put(endpoint);
 	}
 
-	public Response getRequest(String endpoint) {
-		return requestSpecification.get(endpoint);
+	public Response getRequest(String endpoint, int bookingid) {
+		return requestSpecification.pathParam("id", bookingid).get(endpoint);
 	}
 }
